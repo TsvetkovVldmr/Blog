@@ -1,8 +1,57 @@
-﻿
+﻿@model Blog.Controllers.MusicBoxController
 @{
     ViewData["Title"] = "Music Box";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Blog</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/music_box.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">I'm content inside the grid!</div>
+            <div class="col">I'm content inside the grid!</div>
+            <div class="col">I'm content inside the grid!</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Архетип</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Жанр</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Субжанр</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Комментарий</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                </div>
+                <input type="submit" value="AddGenre" />
+            </form>
+        </div>
+    </div>
+</body>
 
+</html>
 <h1>MusicBoxView</h1>
 

@@ -1,14 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Blog.DbTools.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Resources;
 
-namespace DbTools
+namespace DbTools.Models
 {
     /// <summary>
     /// Контекст БД
     /// </summary>
     public partial class BlogContext : DbContext
     {
+        public virtual DbSet<MusicGenre> MusicGenres { get; set; }
+
+
         public BlogContext()
         {
             Database.EnsureCreated();

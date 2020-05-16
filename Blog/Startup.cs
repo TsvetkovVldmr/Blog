@@ -82,6 +82,11 @@ namespace Blog
                     new { controller = "MusicBoxController", action = "Index" });
 
                 routes.MapRoute(
+                    name: "musicBoxPost",
+                    template: "MusicBox",
+                    new { controller = "MusicBoxController", action = "Post" });
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });

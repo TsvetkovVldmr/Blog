@@ -18,13 +18,14 @@ namespace Blog.Controllers
         }
 
         [HttpPost]
-        public async Task Post(GenreData data)
+        public async Task<IActionResult> IndexAsync(GenreData data)
         {
             await this.store.AddGenreAsync(data);
+            return this.Ok();
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
             return View("~/Views/MusicBox/MusicBoxView.cshtml");
         }

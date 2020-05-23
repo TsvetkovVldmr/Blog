@@ -7,6 +7,8 @@ using Autofac.Extensions.DependencyInjection;
 using Blog.Controllers;
 using Blog.DbTools.Interfaces;
 using Blog.DbTools.Stores;
+using Blog.UI.Interfaces;
+using Blog.UI.Services;
 using DbTools.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +39,7 @@ namespace Blog
         {
             services.AddSingleton<BlogContext>();
             services.AddSingleton<MusicBoxController>();
+            services.AddTransient<ITimeService, SimpleTimeService>();
 
             services.AddDbContext<BlogContext>();
 

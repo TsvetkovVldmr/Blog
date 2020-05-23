@@ -1,4 +1,6 @@
-﻿@model Blog.Controllers.MusicBoxController
+﻿@using Blog.Controllers
+
+@model Blog.DomainModels.MusicBox.GenreData
 @{
     ViewData["Title"] = "Music Box";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,40 +21,39 @@
             <div class="col">I'm content inside the grid!</div>
         </div>
     </div>
+    <p>
+        С секундами: <br />
+        @await Component.InvokeAsync("Timer", new { includeSeconds = true })
+    </p>
+
+    <p>
+        Без секунд: <br />
+        <vc:timer include-seconds="false"></vc:timer>
+    </p>
     <div class="container">
-        <div class="row">
-            <form method="post">
-                @*<div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Архетип</span>
+        <form asp-controller="MusicBoxController" asp-action="Index" asp-antiforgery="true" method="post">
+            <div>
+                <div>
+                    <label asp-for="Archetype"></label>
+                    <input type="text" asp-for="Archetype" />
+                </div>
+                <div>
+                    <label asp-for="Genre    "></label>
+                    <input type="text" asp-for="Genre" />
+                </div>
+                <div>
+                    <label asp-for="SubGenre"></label>
+                    <input type="text" asp-for="SubGenre" />
+                </div>
+                <div>
+                    <label asp-for="Comment"></label>
+                    <input type="text" asp-for="Comment" />
+                </div>
+                <div>
+                    <input type="submit" value="Save" />
+                </div>
             </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Жанр</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Субжанр</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-        </div>
-        <div class="input-group input-group-sm mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Комментарий</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-        </div>*@
-                <input type="text" name="Archetype" /><label>Archetype</label><br />
-                <input type="text" name="Genre" /><label>Genre</label><br />
-                <input type="text" name="SubGenre" /><label>SubGenre</label><br />
-                <input type="text" name="Comment" /><label>Comment</label><br />
-                <input type="submit" value="AddGenre" />
-            </form>
-        </div>
+        </form>
     </div>
 </body>
 

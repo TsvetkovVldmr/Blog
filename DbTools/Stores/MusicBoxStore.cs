@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Blog.DomainModels.MusicBox;
 using DbTools.Models;
 using Blog.DbTools.Interfaces;
+using System.Diagnostics;
 
 namespace Blog.DbTools.Stores
 {
@@ -33,8 +34,14 @@ namespace Blog.DbTools.Stores
             if (genre == null)
                 return;
 
-            await DataBase.MusicGenres.AddAsync(genre);
-            await DataBase.SaveChangesAsync();
+
+            string del = "____________________________________\n";
+            string msg = $"Archetype => {data.Archetype}\nGenre => {data.Genre}\nSubGenre => {data.SubGenre}\nComment => {data.Comment}\n";
+
+            Debug.WriteLine(del + msg + del);
+
+            //await DataBase.MusicGenres.AddAsync(genre);
+            //await DataBase.SaveChangesAsync();
         }
     }
 }

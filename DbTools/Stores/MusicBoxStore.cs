@@ -40,8 +40,8 @@ namespace Blog.DbTools.Stores
 
             Debug.WriteLine(del + msg + del);
 
-            //await DataBase.MusicGenres.AddAsync(genre);
-            //await DataBase.SaveChangesAsync();
+            await DataBase.MusicGenres.AddAsync(genre);
+            await DataBase.SaveChangesAsync();
         }
     }
 }

@@ -16,7 +16,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col">I'm content inside the grid!</div>
+            <div class="col">@await Component.InvokeAsync("Timer", new { includeSeconds = true })</div>
             <div class="col">I'm content inside the grid!</div>
             <div class="col">I'm content inside the grid!</div>
         </div>
